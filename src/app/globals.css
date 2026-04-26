@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: #05060d;
+  color: #e6ecff;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Reusable bits that don't translate cleanly to one-shot Tailwind */
+
+@layer components {
+  .panel {
+    @apply w-full max-w-[420px] rounded-[20px] border px-6 pt-7 pb-6 text-center;
+    background: linear-gradient(180deg, rgba(24, 28, 56, 0.75), rgba(10, 12, 30, 0.85));
+    border-color: rgba(120, 150, 255, 0.18);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .gradient-title {
+    background: linear-gradient(90deg, #8fb4ff, #c79bff, #ff9bd6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-score {
+    background: linear-gradient(90deg, #9cc1ff, #c79bff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .btn-primary {
+    @apply inline-block w-full py-3.5 px-4 text-[15px] font-semibold rounded-xl border-0 cursor-pointer mt-2.5;
+    color: #0a0c1e;
+    background: linear-gradient(135deg, #9cc1ff 0%, #c79bff 100%);
+    box-shadow: 0 6px 18px rgba(140, 120, 255, 0.35);
+    transition: transform 0.08s ease, box-shadow 0.12s ease;
+    letter-spacing: 0.3px;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 10px 28px rgba(140, 120, 255, 0.5);
+  }
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-ghost {
+    @apply inline-block w-full py-3.5 px-4 text-[15px] font-semibold rounded-xl cursor-pointer mt-2.5;
+    background: transparent;
+    color: #c3cdfb;
+    border: 1px solid rgba(170, 190, 255, 0.25);
+    transition: transform 0.08s ease, background 0.2s ease;
+    letter-spacing: 0.3px;
+  }
+  .btn-ghost:hover {
+    background: rgba(170, 190, 255, 0.08);
+  }
+  .btn-ghost:active {
+    transform: scale(0.98);
+  }
+
+  .chip {
+    @apply rounded-full px-3.5 py-2 text-[13px] flex items-center gap-2;
+    font-family: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, monospace;
+    background: rgba(20, 24, 48, 0.7);
+    border: 1px solid rgba(120, 150, 255, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .tier-pill {
+    @apply px-2 py-1 rounded-md text-[11px] font-bold tracking-wide uppercase justify-self-start;
+  }
+  .tier-pill.bronze   { background: rgba(205, 127, 50, 0.18);   color: #e0a064; }
+  .tier-pill.silver   { background: rgba(200, 210, 230, 0.15);  color: #c7d0e8; }
+  .tier-pill.gold     { background: rgba(255, 200, 70, 0.18);   color: #ffd267; }
+  .tier-pill.platinum { background: rgba(170, 230, 255, 0.18);  color: #aee6ff; }
+
+  .tier-badge {
+    @apply inline-block px-4 py-1.5 rounded-full font-bold text-[13px] tracking-widest uppercase mb-4;
+    background: rgba(120, 150, 255, 0.1);
+    border: 1px solid rgba(120, 150, 255, 0.25);
+  }
+  .tier-badge.bronze   { background: rgba(205, 127, 50, 0.2);  border-color: rgba(224, 160, 100, 0.5); color: #e0a064; }
+  .tier-badge.silver   { background: rgba(200, 210, 230, 0.15); border-color: rgba(199, 208, 232, 0.5); color: #c7d0e8; }
+  .tier-badge.gold     { background: rgba(255, 200, 70, 0.2);  border-color: rgba(255, 210, 103, 0.6); color: #ffd267; }
+  .tier-badge.platinum { background: rgba(170, 230, 255, 0.2); border-color: rgba(174, 230, 255, 0.6); color: #aee6ff; }
+
+  .hud-card {
+    @apply flex-1 text-center rounded-[10px] py-1.5 px-1;
+    background: rgba(15, 18, 40, 0.6);
+    border: 1px solid rgba(120, 150, 255, 0.15);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+@media (max-height: 700px) {
+  .panel {
+    padding: 18px 18px 18px;
+  }
+}
